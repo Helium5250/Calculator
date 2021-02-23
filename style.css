@@ -1,8 +1,8 @@
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1rem;
 }
 
 *,
@@ -10,8 +10,10 @@ html {
 *:after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
-  margin: inherit;
-  padding: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 button {
@@ -22,5 +24,55 @@ button {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header {
+  font-size: 2rem;
+  padding: 0.2em 0;
+}
+
+#equation {
+  text-align: end;
+  padding: 0.2em 0;
+}
+
+#currentNum {
+  text-align: end;
+  padding: 0.5em 0;
+}
+
+#keys {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (40px)[5];
+  -ms-grid-columns: (40px)[4];
+      grid-template: repeat(5, 40px)/repeat(4, 40px);
+}
+
+#code {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
