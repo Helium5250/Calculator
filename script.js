@@ -2,13 +2,31 @@ const equationDisplay = document.querySelector('#equation');
 const currentNumDisplay = document.querySelector('#currentNum');
 const keys = document.querySelector('#keys');
 
-for (let btn of keys.children) {
-    
-    btn.onclick = () => getKeypress(btn);
+function isNumeric(num) {
+    return !isNaN(num - parseFloat(num));
+}
+
+const getFactorial = (num) =>
+    (num === 0)
+        ? 1
+        : num * getFactorial(num - 1);
+
+function compute(firstNum, operation, secondNum) {
+    switch (operation) {
+        case '÷':
+            return firstNum / secondNum;
+        case '×':
+            return firstNum * secondNum;
+        case '-':
+            return firstNum - secondNum;
+        case '+':
+            return firstNum + secondNum;
+    }
 }
 
 let numInput = [];
 let currentNum = '';
+let currentOperation = '';
 
 function getKeypress(element) {
 
@@ -18,7 +36,19 @@ function getKeypress(element) {
 
         // operations like /*-+
     } else if (element.className == 'operation') {
-        numInput.push(currentNum, element.textContent);
+        if (numInput.length === 0) {
+            numInput.push(currentNum, element.textContent);
+
+        } else if (currentOperation != '') {
+            
+            numInput[numInput.length - 1] = element.textContent;
+
+        } else {
+            console.log(element.textContent);
+            numInput.push(currentNum, '=', compute(parseFloat(numInput[numInput.length - 2]), numInput[numInput.length - 1], parseFloat(currentNum)));
+            if (element.textContent != '=') numInput.push(element.textContent);
+        }
+
         equationDisplay.textContent = numInput.join(' ');
         currentNum = '';
 
@@ -44,13 +74,15 @@ function getKeypress(element) {
                 break;
         }
     };
+
     currentNum = currentNum.toString();
     currentNumDisplay.textContent = currentNum == ''
         ? '0'
         : currentNum;
+
+    console.log(numInput);
 }
 
-const getFactorial = (num) =>
-    (num === 0)
-        ? 1
-        : num * getFactorial(num - 1);
+for (let btn of keys.children) {
+    btn.onclick = () => getKeypress(btn);
+}
