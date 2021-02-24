@@ -3,7 +3,8 @@ const currentNumDisplay = document.querySelector('#currentNum');
 const keys = document.querySelector('#keys');
 
 for (let btn of keys.children) {
-    btn.onclick = (element) => getKeypress(element.target);
+    
+    btn.onclick = () => getKeypress(btn);
 }
 
 let numInput = [];
@@ -11,14 +12,13 @@ let currentNum = '';
 
 function getKeypress(element) {
 
-
     // numbers
     if (element.className == 'number' && currentNum.length < 10) {
-        currentNum += element.innerHTML;
+        currentNum += element.textContent;
 
         // operations like /*-+
     } else if (element.className == 'operation') {
-        numInput.push(currentNum, element.innerHTML);
+        numInput.push(currentNum, element.textContent);
         equationDisplay.textContent = numInput.join(' ');
         currentNum = '';
 
@@ -43,10 +43,8 @@ function getKeypress(element) {
                 currentNum = parseInt(currentNum) * -1;
                 break;
         }
-    }
+    };
     currentNum = currentNum.toString();
-    console.log(currentNum);
-
     currentNumDisplay.textContent = currentNum == ''
         ? '0'
         : currentNum;
