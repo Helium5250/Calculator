@@ -3,7 +3,7 @@ const currentNumDisplay = document.querySelector('#currentNum');
 const keys = document.querySelector('#keys');
 
 document.body.onmousemove = (event) => {
-    keys.style.setProperty('background-position',(event.clientX - 120)+'px '+(event.clientY - 120)+'px');
+    keys.style.setProperty('background-position', (event.clientX - 120) + 'px ' + (event.clientY - 120) + 'px');
 };
 
 function isNumeric(num) {
@@ -18,11 +18,6 @@ const getFactorial = (num) =>
             : num * getFactorial(num + 1);
 
 function compute(firstNum, operation, secondNum) {
-
-    console.log(firstNum);
-    console.log(operation);
-    console.log(secondNum);
-
     let answer = 0;
     switch (operation) {
         case '÷':
@@ -110,12 +105,10 @@ function getKeypress(element) {
 
     currentNum = currentNum.toString();
     currentNumDisplay.textContent = currentNum;
-
-    console.log(equation);
 }
 
 for (let btn of keys.children) {
     btn.onclick = () => {
         getKeypress(btn);
-    }
+    };
 }
