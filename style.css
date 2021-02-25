@@ -1,7 +1,7 @@
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
 }
 
@@ -26,6 +26,12 @@ a {
   color: inherit;
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,32 +46,110 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  color: white;
+  background-color: #1f1f1f;
 }
 
-header {
-  font-size: 2rem;
-  padding: 0.2em 0;
+main {
+  margin-top: -12em;
+  padding: 3em 2em;
+  border: 0.1em solid #3d3d3d;
+  border-radius: 0.5em;
 }
 
 #equation {
-  text-align: end;
-  padding: 0.2em 0;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 0.25em 0;
 }
 
 #currentNum {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-size: 2.5rem;
+  font-weight: 600;
   text-align: end;
-  padding: 0.5em 0;
+  padding: 0.25em 0;
 }
 
 #keys {
+  position: relative;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: (40px)[5];
-  -ms-grid-columns: (40px)[4];
-      grid-template: repeat(5, 40px)/repeat(4, 40px);
+  -ms-grid-rows: (3em)[5];
+  -ms-grid-columns: (5em)[4];
+      grid-template: repeat(5, 3em)/repeat(4, 5em);
+  gap: 0.5em;
+  padding: 0.25em;
+  background-size: 0 0;
+}
+
+#keys button {
+  position: relative;
+  border: none;
+  color: white;
+  background-color: #0f0f0f;
+}
+
+#keys button.number {
+  font-weight: 600;
+  background-color: black;
+}
+
+#keys button:hover {
+  background-color: #3d3d3d;
+}
+
+#keys button:active {
+  background-color: #5c5c5c;
+}
+
+#keys button:before {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  content: "";
+  z-index: -5;
+  border: 0.125em solid #0f0f0f;
+  display: block;
+  position: absolute;
+  top: -0.125em;
+  left: -0.125em;
+  width: 5em;
+  height: 3em;
+}
+
+#keys button.number:before {
+  border: 0.125em solid black;
+}
+
+#keys button:after {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  content: "";
+  border: 0.125em solid #1f1f1f;
+  display: block;
+  position: absolute;
+  top: -0.25em;
+  left: -0.25em;
+  width: 5.25em;
+  height: 3.25em;
+}
+
+#keys:after {
+  z-index: -2;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0)) fixed no-repeat;
+  background-size: 15em 15em;
+  background-position: inherit;
 }
 
 #code {
+  font-family: 'Courier New', Courier, monospace;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -74,5 +158,13 @@ header {
   border-radius: 10px;
   background-color: black;
   color: white;
+}
+
+#code:hover {
+  background-color: #3d3d3d;
+}
+
+#code:active {
+  background-color: #5c5c5c;
 }
 /*# sourceMappingURL=style.css.map */

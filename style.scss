@@ -1,7 +1,6 @@
 html {
     box-sizing: border-box;
-
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
 }
 
@@ -26,36 +25,122 @@ a {
     color: inherit;
 }
 
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
+
+    color: white;
+    background-color: hsl(0, 0%, 12%);
 }
 
-header {
-    font-size: 2rem;
-    padding: 0.2em 0;
+main {
+    margin-top: -12em;
+    padding: 3em 2em;
+    border: 0.1em solid hsl(0, 0%, 24%);
+    border-radius: 0.5em;
 }
-
-main {}
 
 #equation {
-    text-align: end;
-    padding: 0.2em 0;
+    align-self: flex-end;
+    padding: 0.25em 0;
 }
 
 #currentNum {
+    align-self: flex-end;
+    font-size: 2.5rem;
+    font-weight: 600;
     text-align: end;
-    padding: 0.5em 0;
+    padding: 0.25em 0;
 }
 
 #keys {
+    position: relative;
+
     display: grid;
-    grid-template: repeat(5, 40px) / repeat(4, 40px);
+    grid-template: repeat(5, 3em) / repeat(4, 5em);
+    gap: 0.5em;
+
+    padding: 0.25em;
+    background-size: 0 0;
+
+    button {
+        position: relative;
+        border: none;
+
+        color: white;
+        background-color: hsl(0, 0%, 6%);
+    }
+
+    button.number {
+        font-weight: 600;
+        background-color: hsl(0, 0%, 0%);
+    }
+
+    button:hover {
+        background-color: hsl(0, 0%, 24%);
+    }
+
+    button:active {
+        background-color: hsl(0, 0%, 36%);
+    }
+
+    button:before {
+        box-sizing: content-box;
+        content: "";
+        z-index: -5;
+
+        border: 0.125em solid hsl(0, 0%, 6%);
+        display: block;
+        position: absolute;
+        top: -0.125em;
+        left: -0.125em;
+        width: 5em;
+        height: 3em;
+    }
+
+    button.number:before {
+        border: 0.125em solid hsl(0, 0%, 0%);
+    }
+
+    button:after {
+        box-sizing: content-box;
+        content: "";
+
+        border: 0.125em solid hsl(0, 0%, 12%);
+        display: block;
+        position: absolute;
+        top: -0.25em;
+        left: -0.25em;
+        width: 5.25em;
+        height: 3.25em;
+    }
+}
+
+#keys:after {
+    z-index: -2;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(closest-side, hsla(0, 0%, 100%, 0.4), hsla(0, 0%, 100%, 0)) fixed no-repeat;
+
+    background-size: 15em 15em;
+    background-position: inherit;
 }
 
 #code {
+    font-family: 'Courier New', Courier, monospace;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -63,6 +148,14 @@ main {}
     margin: 0.5em;
 
     border-radius: 10px;
-    background-color: black;
+    background-color: hsl(0, 0%, 0%);
     color: white;
+}
+
+#code:hover {
+    background-color: hsl(0, 0%, 24%);
+}
+
+#code:active {
+    background-color: hsl(0, 0%, 36%);
 }

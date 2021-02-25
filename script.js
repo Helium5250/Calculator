@@ -2,6 +2,10 @@ const equationDisplay = document.querySelector('#equation');
 const currentNumDisplay = document.querySelector('#currentNum');
 const keys = document.querySelector('#keys');
 
+document.body.onmousemove = (event) => {
+    keys.style.setProperty('background-position',(event.clientX - 120)+'px '+(event.clientY - 120)+'px');
+};
+
 function isNumeric(num) {
     return !isNaN(num - parseFloat(num));
 }
@@ -111,5 +115,7 @@ function getKeypress(element) {
 }
 
 for (let btn of keys.children) {
-    btn.onclick = () => getKeypress(btn);
+    btn.onclick = () => {
+        getKeypress(btn);
+    }
 }
