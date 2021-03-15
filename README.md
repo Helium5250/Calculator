@@ -1,6 +1,6 @@
 # Calculator
 
-[Live Preview](https://helium5250.github.io/Calculator/)
+[Live Preview](https://codicate.github.io/calculator/)
 
 [The Odin Project](https://www.theodinproject.com/)
 
