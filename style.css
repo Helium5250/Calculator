@@ -52,7 +52,7 @@ body {
 
 main {
   margin-top: -12em;
-  padding: 3em 2em;
+  padding: 2.50em;
   border: 0.1em solid #3d3d3d;
   border-radius: 0.5em;
 }
@@ -64,10 +64,10 @@ main {
 
 #currentNum {
   text-align: end;
-  font-size: 2.5rem;
+  font-size: 1.625rem;
   font-weight: 600;
   text-align: end;
-  padding: 0.25em 0;
+  padding: 0.5em 0 1em 0;
 }
 
 #keys {
